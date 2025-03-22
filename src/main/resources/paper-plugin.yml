@@ -1,0 +1,4 @@
+name: GalaxyTab
+version: '1.0.0'
+main: xyz.lncvrt.galaxytab.GalaxyTab
+api-version: '1.20'
