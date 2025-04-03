@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "xyz.lncvrt"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -20,6 +20,8 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.incendo:cloud-paper:2.0.0-beta.10")
+    implementation("org.incendo:cloud-kotlin-extensions:2.0.0")
 }
 
 val targetJavaVersion = 17
