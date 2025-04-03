@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "xyz.lncvrt"
-version = "1.0.2"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
@@ -15,10 +15,14 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven("https://repo.extendedclip.com/releases/") {
+        name = "placeholderapi"
+    }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("me.clip:placeholderapi:2.11.6")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.incendo:cloud-paper:2.0.0-beta.10")
     implementation("org.incendo:cloud-kotlin-extensions:2.0.0")
@@ -34,10 +38,10 @@ tasks.build {
 }
 
 tasks.processResources {
-    val props = mapOf("version" to version)
+    val props = mapOf("version" to project.version)
     inputs.properties(props)
     filteringCharset = "UTF-8"
-    filesMatching("plugin.yml") {
+    filesMatching(listOf("paper-plugin.yml", "config.yml")) {
         expand(props)
     }
 }

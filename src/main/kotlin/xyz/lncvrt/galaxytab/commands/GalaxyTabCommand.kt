@@ -25,10 +25,13 @@ class GalaxyTabCommand : BukkitCommand(GalaxyTab.getInstance(), "galaxytab", arr
                 val miniMessage = MiniMessage.miniMessage()
                 val instance = GalaxyTab.getInstance()
 
-                instance.saveDefaultConfig()
-                instance.reloadConfig()
-                instance.configFile = instance.config
-                for (player in instance.server.onlinePlayers) instance.setTab(player)
+                instance.loadConfig()
+                if (instance.usePlaceholderAPI) {
+                    instance.restartTask()
+                } else {
+                    instance.stopTask()
+                    for (player in instance.server.onlinePlayers) instance.setTab(player)
+                }
 
                 sender.sendMessage(miniMessage.deserialize("<rainbow>GalaxyTab</rainbow> <light_purple>has been reloaded!</light_purple>"))
             }

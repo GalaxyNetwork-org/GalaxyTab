@@ -1,4 +1,19 @@
+config-version: '${version}' # Don't touch :)
+
+##########################################################################
+#                           Header and Footer
+##########################################################################
+
 header:
-  - "Header"
+  - "Header content"
 footer:
-  - "Footer"
+  - "Footer content"
+
+##########################################################################
+#                             Placeholders
+##########################################################################
+
+# Weather we should enable PlaceholderAPI hook, if found on the server
+placeholderapi-hook: false
+# The delay between updating Placeholders in tab, if enabled
+placeholder-update-delay: 500 # 500 = 0.5s
